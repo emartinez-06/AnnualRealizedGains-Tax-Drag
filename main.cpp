@@ -9,6 +9,8 @@
  */
 #include <iostream>
 #include <fstream>
+#include <iomanip>
+#include <locale>
 
 using namespace std;
 
@@ -50,7 +52,11 @@ void runSimulation(double principal, double annualCont, double rate,
 }
 
 int main() {
-    double principal = 0.0, annualCont = 0.0, rate = 0.0, taxRate = 0.0;
+    long double principal = 0.0, annualCont = 0.0, rate = 0.0, taxRate = 0.0;
+
+    cout << "Enter amounts: ";
+    cin >> get_money(principal) >> annualCont >> rate >> taxRate;
     runSimulation(principal, annualCont, rate, taxRate);
+    cout << "Formatted: " << put_money(principal);
     return 0;
 }
